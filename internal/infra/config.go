@@ -8,12 +8,12 @@ import (
 
 // Config holds the application configuration
 type Config struct {
-	Port                   string
-	GinMode                string
-	DatabaseURL            string
-	LineChannelSecret      string
-	LineChannelAccessToken string
-	LogLevel               string
+	Port              string
+	GinMode           string
+	DatabaseURL       string
+	LineChannelId     string
+	LineChannelSecret string
+	LogLevel          string
 }
 
 // LoadConfig loads configuration from environment variables
@@ -22,12 +22,12 @@ func LoadConfig() (*Config, error) {
 	_ = godotenv.Load()
 
 	config := &Config{
-		Port:                   getEnv("PORT", "8080"),
-		GinMode:                getEnv("GIN_MODE", "debug"),
-		DatabaseURL:            getEnv("DATABASE_URL", ""),
-		LineChannelSecret:      getEnv("LINE_CHANNEL_SECRET", ""),
-		LineChannelAccessToken: getEnv("LINE_CHANNEL_ACCESS_TOKEN", ""),
-		LogLevel:               getEnv("LOG_LEVEL", "debug"),
+		Port:              getEnv("PORT", "8080"),
+		GinMode:           getEnv("GIN_MODE", "debug"),
+		DatabaseURL:       getEnv("DATABASE_URL", ""),
+		LineChannelId:     getEnv("LINE_CHANNEL_ID", ""),
+		LineChannelSecret: getEnv("LINE_CHANNEL_SECRET", ""),
+		LogLevel:          getEnv("LOG_LEVEL", "debug"),
 	}
 
 	return config, nil

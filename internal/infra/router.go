@@ -27,7 +27,7 @@ func Router(config *Config) *gin.Engine {
 	}
 
 	// Initialize LINE service
-	lineService, err := NewLineService(config.LineChannelSecret, config.LineChannelAccessToken)
+	lineService, err := NewLineService(config.LineChannelSecret, config.LineChannelId)
 	if err != nil {
 		log.Fatalf("Failed to initialize LINE service: %v", err)
 	}
